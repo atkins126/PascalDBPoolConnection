@@ -13,12 +13,12 @@ Using connection pooling on application servers increases application performanc
 * Flexible to use with any development framework (Datasnap, Horse, RDW, etc).
 
 ## Initialize Pool
-```
+```pas
 {$IFDEF FPC}
   {$MODE Delphi}
 {$ENDIF}
 
-function NewDatabase(ATenantDatabase: string): TComponent;
+function NewDatabase(ATenantDatabase: string): TObject;
 var
   Conn: TZConnection;
 begin
@@ -37,7 +37,7 @@ begin
 end;
 ```
 ## Get connection from pool
-```
+```pas
 var
   vDBConnection: IDBConnection;
 begin

@@ -38,7 +38,7 @@ type
     procedure Execute; override;
   end;
 
-  function NewDatabase(ATenantDatabase: string): TComponent;
+  function NewDatabase(ATenantDatabase: string): TObject;
 
 var
   FrmMain: TFrmMain;
@@ -58,7 +58,7 @@ var
   i: Integer;
   t: TThreadTest;
 begin
-  for i := 1 to 100 do
+  for i := 1 to 200 do
   begin
     t := TThreadTest.Create(True);
     t.FreeOnTerminate := True;
@@ -78,7 +78,7 @@ begin
     .SetOnCreateDatabaseComponent(NewDatabase);
 end;
 
-function NewDatabase(ATenantDatabase: string): TComponent;
+function NewDatabase(ATenantDatabase: string): TObject;
 var
   Conn: TZConnection;
 begin
